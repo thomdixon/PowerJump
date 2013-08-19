@@ -1,4 +1,7 @@
-$env:markpath = (join-path $env:appdata "thomdixon\PowerJump")
+# Author: Thom Dixon
+# License: WTFPL (http://www.wtfpl.net/txt/copying)
+
+$env:markpath = join-path $env:appdata "thomdixon\PowerJump"
 $ErrorActionPreference = "Stop"
 
 function Create-Shortcut([string]$source, [string]$dest) {
@@ -17,7 +20,7 @@ function Mark([string]$name) {
     if ([string]::IsNullOrEmpty($name.Trim())) {
         throw "Invalid mark name"
     }
-    
+
     mkdir -p $env:markpath -force | out-null
     create-shortcut $(get-location) (join-path $env:markpath ($name + ".lnk"))
 }
