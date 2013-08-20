@@ -31,7 +31,7 @@ function Jump([string]$name) {
         throw "No such mark: $name"
     }
 
-    pushd get-shortcuttarget $path
+    pushd (get-shortcuttarget $path)
 }
 
 function Unmark([string]$name) {
